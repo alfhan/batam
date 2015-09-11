@@ -1,5 +1,3 @@
-<script src="<?php echo base_url('adminlte/js/bootbox.min.js');?>" type="text/javascript"></script>
-<script src="<?php echo base_url('adminlte/js/jquery.form.min.js');?>" type="text/javascript"></script>
 <script type="text/javascript">
     var berforeSendLoading = bootbox.dialog({
           title: "Loading",

@@ -32,14 +32,6 @@
                             <input type="text" class="form-control input-sm" id="nama" name="nama" placeholder="Nama Pengguna" />
                         </div>
                         <div class="form-group">
-                            <label  for="group_id">Access Level</label>
-                            <select class="form-control input-sm" id="group_id" name="group_id">
-                            	<?php foreach ($group as $row) {
-                            		echo "<option value='$row[id]'>$row[nama]</option>";	
-                            	}?>
-                            </select>
-                        </div>
-                        <div class="form-group">
                             <label for="email">Email</label>
                             <input type="email" class="form-control input-sm" id="email" name="email"  placeholder="Email" />
                         </div>

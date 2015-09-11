@@ -25,21 +25,35 @@
 		                    <div class="col-md-3">
 		                    	<select name="kategori_artikel_id" id="kategori_artikel_id" class="form-control input-sm">
 		                    	<?php
-		                    		foreach ($kategori as $r) {
-		                    			echo "<option value='$r[id]'>$r[nama]</option>";
+		                    		$mainMenuSelect = $this->auth->main_menu_select();
+		                    		// print_r($mainMenuSelect);
+		                    		foreach ($mainMenuSelect as $r) {
+		                    			if($r['parent_id']==0){
+		                    				// echo "<optgroup label='$r[nama]'>";
+		                    				@$select = $r['id'] == $data['kategori_artikel_id'] ? "selected='selected'":"";
+		                    				echo "<option $select value='$r[id]'><label>$r[nama]</label></option>";
+		                    				foreach ($mainMenuSelect as $row) {
+		                    					if($row['parent_id'] == $r['id']){
+		                    						@$select = $row['id'] == $data['kategori_artikel_id'] ? "selected='selected'":"";
+		                    						// echo "<optgroup label='$row[nama]'>";
+		                    						echo "<option $select value='$row[id]'><label>-- $row[nama]</label></option>";
+		                    						foreach ($mainMenuSelect as $rows) {
+		                    							if($rows['parent_id'] == $row['id']){
+		                    								@$select = $rows['id'] == $data['kategori_artikel_id'] ? "selected='selected'":"";
+		                    								echo "<option $select value='$rows[id]'>--- $rows[nama]</option>";
+		                    							}
+		                    						}
+		                    						// echo "</optgroup>";
+		                    					}
+		                    				}
+		                    				// echo "</optgroup>";
+		                    			}
 		                    		}
 		                    	?>
 		                    	</select>
 		                    </div>
 		                </div>
 		                <div class="form-group">
-		                    <label for="is_aktif" class="col-sm-3 control-label">Aktif</label>
-		                    <div class="col-sm-2">
-		                        <select class="form-control input-sm" name="is_aktif" id="is_aktif">
-		                        	<option value="1" <?=@$data['is_aktif'] == 1 ? "selected='selected'":""?>>Aktif</option>
-		                        	<option value="0" <?=@$data['is_aktif'] == 0 ? "selected='selected'":""?>>Tidak Aktif</option>
-		                        </select>
-		                    </div>
 		                    <label for="foto" class="col-sm-3 control-label">Foto</label>
 		                    <div class="col-sm-3">
 		                        <input type="file" name="foto" id="foto" class="form-control input-sm" />

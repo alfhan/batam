@@ -1,5 +1,3 @@
-<script src="<?php echo base_url('adminlte/js/bootbox.min.js');?>" type="text/javascript"></script>
-<script src="<?php echo base_url('adminlte/js/jquery.form.min.js');?>" type="text/javascript"></script>
 <script type="text/javascript">
     var berforeSendLoading = bootbox.dialog({
           title: "Loading",
@@ -33,25 +31,6 @@
     function saveClick(){
         $('#myForm').ajaxSubmit({
             url:'<?php echo $urlSave;?>',
-            type:'POST',
-            beforeSend:function(r){
-              berforeSendLoading.modal('show');
-            },
-            success:function(r){
-              berforeSendLoading.modal('hide');
-              successDialog.modal('show');
-            },
-            error:function(r){
-              berforeSendLoading.modal('hide');
-              errorDialog.modal('show');
-            },
-        }).data('jqxhr').done(function(r){
-            
-        });
-    }
-    function saveEmailSettingClick(){
-        $('#frmemail').ajaxSubmit({
-            url:'<?php echo $urlEmailSave;?>',
             type:'POST',
             beforeSend:function(r){
               berforeSendLoading.modal('show');

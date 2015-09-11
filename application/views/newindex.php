@@ -12,9 +12,11 @@
         <!-- Ionicons -->
         <link href="<?php echo base_url('asset/admin/css/ionicons.min.css');?>" rel="stylesheet" type="text/css" />
         <!-- Theme style -->
-        <link href="<?php echo base_url('asset/admin/css/asset/admin.css');?>" rel="stylesheet" type="text/css" />
-        <link href="<?php echo base_url('asset/admin/datatables/dataTables.bootstrap.css');?>" rel="stylesheet" type="text/css" />
+        <link href="<?php echo base_url('asset/admin/css/AdminLTE.css');?>" rel="stylesheet" type="text/css" />
+        <link href="<?php echo base_url('asset/admin/css/datatables/dataTables.bootstrap.css');?>" rel="stylesheet" type="text/css" />
         <link href="<?php echo base_url('asset/admin/js/plugins/bootstrap-datepicker/css/bootstrap-datepicker.min.css');?>" rel="stylesheet" type="text/css" />
+        <link href="<?php echo base_url('asset/admin/js/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css');?>" rel="stylesheet" type="text/css" />
+        <link rel="icon" href="<?=base_url('asset/images/'.$prof->foto)?>" type="image/png" sizes="16x16">
         <?php echo isset($css) ? $css : "";?>
     </head>
     <body class="skin-blue">
@@ -37,11 +39,19 @@
         <!--MainJquery-->
         <script src="<?php echo base_url('asset/admin/js/jquery.min.js');?>"></script>
         <script src="<?php echo base_url('asset/admin/js/bootstrap.min.js');?>" type="text/javascript"></script>
-        <script src="<?php echo base_url('asset/admin/datatables/js/jquery.dataTables.js');?>" type="text/javascript"></script>
-        <script src="<?php echo base_url('asset/admin/datatables/dataTables.bootstrap.js');?>" type="text/javascript"></script>
-        <script src="<?php echo base_url('asset/admin/js/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js');?>" type="text/javascript"></script>
+        <script src="<?php echo base_url('asset/admin/js/bootbox.min.js');?>" type="text/javascript"></script>
+        <script src="<?php echo base_url('asset/admin/js/jquery.form.min.js');?>" type="text/javascript"></script>
+        <script src="<?php echo base_url('asset/front/plugins/datatables/jquery.dataTables.min.js');?>" type="text/javascript"></script>
+        <script src="<?php echo base_url('asset/front/plugins/datatables/dataTables.bootstrap.min.js');?>" type="text/javascript"></script>
+        <script src="<?php echo base_url('asset/front/plugins/datepicker/bootstrap-datepicker.js');?>" type="text/javascript"></script>
+        <script src="<?=base_url('asset/admin/js/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js')?>" type="text/javascript"></script>
         <!-- asset/admin App -->
         <script src="<?php echo base_url('asset/admin/js/AdminLTE/app.js');?>" type="text/javascript"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $(".textarea").wysihtml5();
+              });
+        </script>
         <?php echo isset($js) ? $js : "";?>
     </body>
 </html>

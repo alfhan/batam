@@ -35,12 +35,8 @@ define('FOPEN_WRITE_CREATE',					'ab');
 define('FOPEN_READ_WRITE_CREATE',				'a+b');
 define('FOPEN_WRITE_CREATE_STRICT',				'xb');
 define('FOPEN_READ_WRITE_CREATE_STRICT',		'x+b');
-define('TITLE_APP',								'NAMA USAHA');
-define('LOGO_APP',								'company/logo.png');
-define('UPLOADS',								'uploads/');
-define('FILE_BARANG',							'uploads/barang/');
+define('LOGO_APP',								'asset/images');
 define('ERROR_MSG',								'Gagal, Hubungi Administraor Aplikasi');
-define('FILE_PERUSAHAAN',						'images/company/');
 define('MEMBER',						'xp');
 define('OWNER',							'7');
 

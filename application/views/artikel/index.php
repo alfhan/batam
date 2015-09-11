@@ -22,7 +22,6 @@
                        <th width="35">No</th>
                        <th>Tanggal</th>
                        <th>Judul</th>
-                       <th>Status</th>
                        <th width="125">Aksi</th>
                    </tr>
                </thead>
@@ -36,7 +35,6 @@
                     <td><?=$no++?></td>
                     <td><?=dateToIndo($r['tanggal'])?></td>
                     <td><?=$r['judul']?></td>
-                    <td><?=$status?></td>
                     <td>
                         <a href="<?="$link/form/$r[id]"?>" class="btn btn-xs btn-info"><i class="fa fa-edit"></i> Edit</a>
                         <?php if($r['id'] > 7){ ?>

@@ -14,17 +14,16 @@
   <meta name="author" content="">
 
   <!-- Stylesheets -->
-  <link href="<?php echo base_url('template/themes/login');?>/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="<?php echo base_url('template/themes/login');?>/css/font-awesome.min.css">
-  <link href="<?php echo base_url('template/themes/login');?>/css/style.css" rel="stylesheet">
+  <link href="<?=base_url('asset/login');?>/css/bootstrap.min.css" rel="stylesheet">
+  <link href="<?=base_url('asset/login');?>/css/font-awesome.min.css" rel="stylesheet">
+  <link href="<?=base_url('asset/login');?>/css/style.css" rel="stylesheet">
   
-  <script src="js/respond.min.js"></script>
   <!--[if lt IE 9]>
   <script src="js/html5shiv.js"></script>
   <![endif]-->
 
   <!-- Favicon -->
-  <link href="<?php echo base_url("images/"). LOGO_APP;?>" rel="shortcut icon" type="image/ico" />
+  <link href="<?=base_url("images/"). LOGO_APP;?>" rel="shortcut icon" type="image/ico" />
 </head>
 
 <body>
@@ -92,8 +91,9 @@
 		
 
 <!-- JS -->
-<script src="<?php echo base_url('template/themes/login');?>/js/jquery.js"></script>
-<script src="<?php echo base_url('template/themes/login');?>/js/bootstrap.min.js"></script>
+<script src="<?=base_url('asset/admin/js/jquery.min.js');?>"></script>
+<script src="<?=base_url('asset/admin/js/bootstrap.min.js');?>"></script>
+<script src="<?=base_url('asset/login/js/respond.min.js');?>"></script>
 <script>
 	$(document).keyup(function(t){
 		var a = $('#username').val();

@@ -30,25 +30,23 @@
 	              <li data-target="#carousel-example-generic" data-slide-to="1" class=""></li>
 	              <li data-target="#carousel-example-generic" data-slide-to="2" class=""></li>
 	            </ol>
+	            <?php
+	            	$slide = $this->auth->slide_show();
+	            ?>
 	            <div class="carousel-inner">
-	              <div class="item active">
-	                <img src="<?=base_url('asset/images/slide/1.jpg')?>" alt="First slide">
+	            <?php
+	            	$i =1;
+	            	foreach ($slide as $r) { 
+	            		$active = $i == 1 ? "active":"";
+	            		$i++;
+	            ?>
+	              <div class="item <?=$active?>">
+	                <img src="<?=base_url('asset/images/slide/'.$r['foto'])?>" alt="<?=$r['judul']?>">
 	                <div class="carousel-caption">
-	                  First Slide
+	                  <?=$r['judul']?>
 	                </div>
 	              </div>
-	              <div class="item">
-	                <img src="<?=base_url('asset/images/slide/2.jpg')?>" alt="Second slide">
-	                <div class="carousel-caption">
-	                  Second Slide
-	                </div>
-	              </div>
-	              <div class="item">
-	                <img src="<?=base_url('asset/images/slide/3.jpg')?>" alt="Third slide">
-	                <div class="carousel-caption">
-	                  Third Slide
-	                </div>
-	              </div>
+	             <?php } ?>
 	            </div>
 	            <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
 	              <span class="fa fa-angle-left"></span>
@@ -72,40 +70,36 @@
 		    	$profil = $this->auth->profil();
 		    	$linkInstansi = $this->auth->linkInstansi();
 		    	$mainMenu = $this->auth->mainMenu();
+		    	$theModule = $this->auth->the_module();
 		    ?>
-		    <div class="col-md-12 col-sm-12" style="padding:0;background:#fff">
+		   	<?php $this->load->view('front/main_menu');?>
+		    <div class="col-md-12 col-sm-12" style="padding:0;">
 		    	<div class="col-md-1 col-sm-1">&nbsp;</div>
-		    	<div class="col-md-10 col-sm-10">
-		    		<br />
-		    		<div class="btn-group btn-group-justified" role="group" aria-label="..." style="border-bottom:5px solid #ccc">
-              <div class="btn btn-default btn-lg"><a href="<?=site_url()?>"><i class="glyphicon glyphicon-home"></i>&nbsp;&nbsp;Home</a></div>
-              <?php
-              	foreach ($mainMenu as $r) {
-              		if($r['parent_id'] == 0){
-              ?>
-              <div class="btn-group" role="group">
-	              <button type="button" class="btn btn-default dropdown-toggle btn-lg" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						      <i class="<?=$r['icon']?>"></i>&nbsp;&nbsp;<?=$r['nama']?>
-						      <span class="caret"></span>
-						    </button>
-						    <ul class="dropdown-menu">
-						    <?php
-              		foreach ($mainMenu as $row) {
-              			if($row['parent_id'] == $r['id']){
-              	?>
-              	<?php
-              	if($row['tipe'] == 'Internal Link'){
-              	?>
-						      <li style="background:#1C590C;"><a href="<?=site_url($row['url'])?>" class="btn btn-lg" style="text-align:left;color:#fff"><i class="glyphicon glyphicon-play btn-sm"></i><?=$row['nama']?></a></li>
-								<?php }else{ ?>
-									<li style="background:#1C590C;"><a href="<?=$row['url']?>" target="_blank" class="btn btn-lg" style="text-align:left;color:#fff"><i class="glyphicon glyphicon-play btn-sm"></i><?=$row['nama']?></a></li>
-								<?php } ?>
-						    <?php } } ?>
-						    </ul>
-						   </div>
-              <?php } } ?>
-            </div>
-            <br />
+			    <div class="col-md-10 col-sm-10">
+			    <?php
+			    	foreach ($theModule['parent'] as $r) {
+			    ?>
+			    	<div class="col-md-4 col-sm-4">
+			    		<div class="panel panel-success">
+			    			<div class="panel-heading">
+			    				<h3 class="panel-title"><?=$r['nama']?></h3>
+			    			</div>
+			    			<div class="panel-body">
+			    				<dl>
+				    				<?php
+				    					foreach ($theModule['child'] as $row) {
+				    						if($row['module_id'] == $r['id']){
+										?>
+										<?php if($row['show_title'] == 1){ ?>
+										<dt><?=$row['judul']?></dt>
+										<?php } ?>
+										<dd><?=nl2br($row['isi'])?></dd>
+										<?php } } ?>
+									</dl>
+			    			</div>
+			    		</div>
+			    	</div>
+			    <?php } ?>
 		    	</div>
 		    	<div class="col-md-1 col-sm-1">&nbsp;</div>
 		    </div>

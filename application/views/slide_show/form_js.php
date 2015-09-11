@@ -1,10 +1,4 @@
-<script src="<?=base_url('adminlte/js/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js')?>" type="text/javascript"></script>
-<script src="<?php echo base_url('adminlte/js/bootbox.min.js');?>" type="text/javascript"></script>
-<script src="<?php echo base_url('adminlte/js/jquery.form.min.js');?>" type="text/javascript"></script>
 <script type="text/javascript">
-$(document).ready(function(){
-	$(".textarea").wysihtml5();
-});
 	var berforeSendLoading = bootbox.dialog({
           title: "Loading",
           message: "<div class='progress sm progress-striped active'>"+

@@ -41,10 +41,6 @@ class profil_model extends MY_Model {
 			);
 		if(!$foto){
 			unset($data['foto']);
-		}else{
-			$this->load->helper('file');
-			$old_file = $this->input->post('old_file');
-			unlink($data_foto['file_path'].$old_file);
 		}
 		$id = $this->input->post('id');
 		if(empty($id) or $id == ''){
@@ -60,9 +56,9 @@ class profil_model extends MY_Model {
 		$config['source_image'] = $images;
 		/*$config['create_thumb'] = TRUE;*/
 		$config['maintain_ratio'] = false;
-		$config['width']         = 200;
-		$config['height']       = 50;
-		$config['new_image'] = "images/company/logo.jpg";
+		$config['width']         = 65;
+		$config['height']       = 85;
+		$config['new_image'] = "asset/images/logo.jpg";
 		$this->image_lib->initialize($config);
 		$this->image_lib->clear();
 	    $this->image_lib->initialize($config);

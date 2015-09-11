@@ -17,7 +17,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </a>
-        <a href="<?=base_url()?>" target="_blank" class="btn btn-xs btn-danger" style="top:14px;position:relative;">
+        <a href="<?=site_url()?>" target="_blank" class="btn btn-xs btn-danger" style="top:14px;position:relative;">
             <i class="fa fa-external-link"></i>
             View Site
         </a>
@@ -31,16 +31,16 @@
                     <ul class="dropdown-menu">
                         <!-- User image -->
                         <li class="user-header bg-light-blue">
-                            <img src="<?php echo base_url(UPLOADS.$pengguna->foto);?>" class="img-circle" alt="User Image" />
+                            <img src="<?php echo base_url($pengguna->foto);?>" class="img-circle" alt="User Image" />
                             <p><?php echo $pengguna->nama;?></p>
                         </li>
                         <!-- Menu Footer-->
                         <li class="user-footer">
                             <div class="pull-left">
-                                <a href="<?php echo base_url('usermanagement/profile');?>" class="btn btn-default btn-flat">Profile</a>
+                                <a href="<?php echo site_url('usermanagement/profile');?>" class="btn btn-default btn-flat">Profile</a>
                             </div>
                             <div class="pull-right">
-                                <a href="<?php echo base_url('home/logout');?>" class="btn btn-default btn-flat">Sign out</a>
+                                <a href="<?php echo site_url('home/logout');?>" class="btn btn-default btn-flat">Sign out</a>
                             </div>
                         </li>
                     </ul>

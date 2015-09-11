@@ -2,6 +2,7 @@
 class slide_show_model extends MY_Model {
 
     protected $table = 'slide_show';
+    protected $pf = 'asset/images/slide';
 	
 	function __construct(){
         parent::__construct();
@@ -24,7 +25,7 @@ class slide_show_model extends MY_Model {
 		$this->load->helper('file');
 		$foto = $this->input->post('foto');
 		if($foto){
-			@unlink('images/slide_show/'.$foto);
+			@unlink($this->pf .'/'. $foto);
 		}
 	}
 	public function getWhere($where){
@@ -48,7 +49,7 @@ class slide_show_model extends MY_Model {
 			$this->load->helper('file');
 			$old_file = $this->input->post('old_file');
 			if($old_file)
-				@unlink('images/slide_show/'.$old_file);
+				@unlink($this->pf .'/'. $old_file);
 		}
 		$id = $this->input->post('id');
 		if(empty($id) or $id == ''){
@@ -60,14 +61,13 @@ class slide_show_model extends MY_Model {
 	public function image_resize_slide($images)
     {
     	#slide
-    	$slide_path = 'images/slide_show';
-    	$slide_width = 768;
-    	$slide_height = 450;
+    	$slide_path = $this->pf;
+    	$slide_width = 1290;
+    	$slide_height = 506;
     	$this->load->library('image_lib');
     	$uniqid = uniqid();
 		$config['image_library'] = 'gd2';
 		$config['source_image'] = $images;
-		/*$config['create_thumb'] = TRUE;*/
 		$config['maintain_ratio'] = false;
 		$config['width']         = $slide_width;
 		$config['height']       = $slide_height;

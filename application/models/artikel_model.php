@@ -15,6 +15,10 @@ class artikel_model extends MY_Model {
 		$query = "select * from {$this->table} where 1=1 $where";
 		return $this->db->query($query)->result_array();
 	}
+	public function getByKategoriId($id)
+	{
+		return $this->db->get_where($this->table,array('kategori_artikel_id'=>$id))->result_array();
+	}
 	public function getById($id){
 		$result = false;
 		if($id){
@@ -28,7 +32,7 @@ class artikel_model extends MY_Model {
 		$this->load->helper('file');
 		$foto = $this->input->post('foto');
 		if($foto){
-			@unlink('images/blog/'.$foto);
+			@unlink('asset/images/blog/'.$foto);
 		}
 	}
 	public function getWhere($where){
@@ -56,7 +60,7 @@ class artikel_model extends MY_Model {
 			$this->load->helper('file');
 			$old_file = $this->input->post('old_file');
 			if($old_file)
-				@unlink('images/blog/'.$old_file);
+				@unlink('asset/images/blog/'.$old_file);
 		}
 		$id = $this->input->post('id');
 		if(empty($id) or $id == ''){
@@ -69,9 +73,9 @@ class artikel_model extends MY_Model {
 	public function image_resize_artikel($images)
     {
     	#blog
-    	$blog_path = 'images/blog';
-    	$blog_width = 862;
-    	$blog_height = 398;
+    	$blog_path = 'asset/images/blog';
+    	$blog_width = 600;
+    	$blog_height = 250;
     	$this->load->library('image_lib');
     	$uniqid = uniqid();
 		$config['image_library'] = 'gd2';
@@ -101,7 +105,7 @@ class artikel_model extends MY_Model {
     	$this->load->helper('file');
 		$foto = $this->input->post('foto');
 		if($foto){
-			@unlink('images/blog/'.$foto);
+			@unlink('asset/images/blog/'.$foto);
 		}
     }
 }

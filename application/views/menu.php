@@ -5,7 +5,7 @@
         foreach ($this->auth->parent_menu() as $row) {
     ?>
     <li class="treeview active">
-        <a href="<?php echo base_url($row['url']);?>">
+        <a href="<?php echo site_url($row['url']);?>">
             <i class="<?php echo $row['icon'];?>"></i> <span><?php echo $row['nama'];?></span>
             <i class="fa fa-angle-left pull-right"></i>
         </a>
@@ -14,7 +14,7 @@
                 foreach ($child_menu as $r) { 
                     if($r['parent_id'] == $row['id']){
             ?>
-                        <li><a href="<?php echo base_url($r['url']);?>"><i class="fa fa-angle-double-right"></i> <?php echo $r['nama'];?></a></li>
+                        <li><a href="<?php echo site_url($r['url']);?>"><i class="fa fa-angle-double-right"></i> <?php echo $r['nama'];?></a></li>
             <?php 
                     }
                 }

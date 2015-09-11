@@ -41,6 +41,6 @@
     <script src="<?=base_url('asset/front');?>/dist/js/app.min.js" type="text/javascript"></script>
     
     <!-- Demo -->
-    <script src="<?=base_url('asset/front');?>/plugins/datatables/jquery.dataTables.js" type="text/javascript"></script>
-    <script src="<?=base_url('asset/front');?>/plugins/datatables/dataTables.bootstrap.js" type="text/javascript"></script>
+    <script src="<?=base_url('asset/front');?>/plugins/datatables/jquery.dataTables.min.js" type="text/javascript"></script>
+    <script src="<?=base_url('asset/front');?>/plugins/datatables/dataTables.bootstrap.min.js" type="text/javascript"></script>
 </head><!--/head-->
