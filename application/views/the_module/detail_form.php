@@ -23,12 +23,9 @@
 							<div class="col-md-3">
 								<input class="form-control input-sm" name="judul" required value="<?=@$data['judul']?>" />
 							</div>
-							<label class="control-label col-md-2">Show Title</label>
-							<div class="col-md-2">
-								<select class="form-control input-sm" name="show_title">
-									<option value="1" <?=@$data['show_title']==1?"selected='selected'":""?>>Yes</option>
-									<option value="0" <?=@$data['show_title']==0?"selected='selected'":""?>>No</option>
-								</select>
+							<label class="control-label col-md-2">URL Eksternal Link</label>
+							<div class="col-md-5">
+								<input tipe="url" name="url" value="<?=@$data['url']?>" class="form-control input-sm">
 							</div>
 						</div>
 						<div class="form-group">

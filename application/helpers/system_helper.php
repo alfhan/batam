@@ -37,6 +37,29 @@ function get_bulan_all($getBulan=null){
         '11'=>'November',
         '12'=>'Desember'
     );
+    if($getBulan == null)
+        return $bulan;
+    else{
+        $i = $getBulan;
+        if($getBulan < 10) $i = $getBulan;
+        return $bulan[$i];
+    }
+}
+function get_bulan_short($getBulan=null){
+    $bulan=array(
+        '01'=>'Jan',
+        '02'=>'Feb',
+        '03'=>'Mar',
+        '04'=>'Apr',
+        '05'=>'Mei',
+        '06'=>'Jun',
+        '07'=>'Jul',
+        '08'=>'Agu',
+        '09'=>'Sep',
+        '10'=>'Okt',
+        '11'=>'Nov',
+        '12'=>'Des'
+    );
 	if($getBulan == null)
 		return $bulan;
 	else{
@@ -66,23 +89,19 @@ function dateToIndo($date="",$day=false,$time=false){
     return $date;
 }
 
-function dateIndo($date=0,$day=false,$time=false,$format=0){ // 0=01 Januari 1970,1 = 01/01/1970
-    $bulan=get_bulan_all();
+function dateIndoShort($date="",$day=false,$time=false){ // 0=01 Januari 1970,1 = 01/01/1970
+    $bulan=get_bulan_short();
     $hari=get_hari_all();
-    $d=date('d',$date);
-    $m=date('m',$date);
-    $y=date('Y',$date);
-    $n=date('N',$date);
-    $t=date('H:i',$date);
-    if($day){
-        switch($format){
-            case 0 : $date = $hari[$n].", ".$d." ".$bulan[$m]." ".$y." ";
-            break;
-            case 1 : $date = "$hari[$n], $d/$m/$y ";
-        }
-    }else{
+    $d=date('d',  strtotime($date));
+    $m=date('m',  strtotime($date));
+    $y=date('Y',  strtotime($date));
+    $n=date('N',  strtotime($date));
+    $t=date('H:i', strtotime($date));
+    if($day)
+        $date = $hari[$n].", ".$d." ".$bulan[$m]." ".$y." ";
+    else
         $date = $d." ".$bulan[$m]." ".$y." ";
-    }    
+        
     if($time)
         $date .= $t;
         

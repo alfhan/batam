@@ -15,38 +15,16 @@
 					<h3 class="panel-title"><?=$title?></h3>
 				</div>
 				<div class="panel-body">
-					<form method="post" action="<?=site_url('main_menu/simpan')?>" class="tasi-form form-horizontal">
+					<form method="post" action="<?=site_url('menu_icon/simpan')?>" class="tasi-form form-horizontal">
 						<input type="hidden" value="<?=@$data['id']?>" name="id" />
 						<div class="form-group">
 							<label class="control-label col-md-2">Nama</label>
 							<div class="col-md-3">
 								<input class="form-control input-sm" name="nama" required value="<?=@$data['nama']?>" />
 							</div>
-						</div>
-						<div class="form-group">
-							<label class="control-label col-md-2">Parent</label>
-							<div class="col-md-3">
-								<select class="form-control input-sm" name="parent_id">
-									<option value="0">--TOP--</option>
-								<?php
-									foreach ($parent_id as $r) {
-										if($r['parent_id'] == 0){
-											@$selected = $data['parent_id'] == $r['id'] ? "selected='selected'":"";
-											echo "<option value='$r[id]' $selected>$r[nama]</option>";
-											foreach ($parent_id as $row) {
-												if($r['id'] == $row['parent_id']){
-													@$selected = $data['parent_id'] == $row['id'] ? "selected='selected'":"";
-													echo "<option value='$row[id]' $selected>-$row[nama]</option>";
-												}
-											}
-										}
-									}
-								?>
-								</select>
-							</div>
 							<label class="control-label col-md-2">URL</label>
-							<div class="col-md-4">
-								<input class="form-control input-sm" name="url" value="<?=@$data['url']?>" placeholder="Leave Blank if Internal Link" />
+							<div class="col-md-5">
+								<input class="form-control input-sm" name="url" tipe="url" value="<?=@$data['url']?>">
 							</div>
 						</div>
 						<div class="form-group">

@@ -38,17 +38,6 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-3" for="group_id">Access Level</label>
-                            <div class="col-md-2">
-                            	<select class="form-control input-sm" id="group_id" name="group_id">
-                            	<?php foreach ($group_id as $row) {
-                            		$select = $row['id'] == $user->group_id ? "selected":"";
-                            		echo "<option $select value='$row[id]'>$row[nama]</option>";	
-                            	}?>
-                            	</select>
-                            </div>
-                        </div>
-                        <div class="form-group">
                             <label class="col-md-3" for="email">Email</label>
                             <div class="col-md-4">
                             	<input type="email" class="form-control input-sm" id="email" name="email" value="<?php echo $user->email;?>" />

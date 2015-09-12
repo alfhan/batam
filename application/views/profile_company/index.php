@@ -18,6 +18,7 @@
                 <div class="box-body">
                     <input type="hidden" name="id" id="id" value="<?=$data->id?>" />
                     <input type="hidden" name="old_file" id="old_file" value="<?=$data->foto?>" />
+                    <input type="hidden" name="old_gambar" id="old_gambar" value="<?=$data->gambar?>" />
                     <div class="form-group">
                         <label for="nama" class="col-sm-3 control-label">Nama Usaha</label>
                         <div class="col-sm-5">
@@ -65,6 +66,13 @@
                         <div class="col-sm-5">
                             <input type="file" id="foto" name="foto">
                             <p class="help-block">Image Only (65X85)</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="gambar" class="col-sm-3 control-label">Gambar</label>
+                        <div class="col-sm-5">
+                            <input type="file" id="gambar" name="gambar">
+                            <p class="help-block">Image Only (1290x506)</p>
                         </div>
                     </div>
                 </div>

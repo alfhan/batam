@@ -21,4 +21,9 @@ class content_main extends CI_Controller {
 		}
 		$this->load->view('front/content_main', $content);
 	}
+	public function cari($q)
+	{
+		$content['data'] = $this->db->query("select * from artikel where isi like '%$q%' or judul like '$q'")->result_array();
+		$this->load->view('front/content_cari', $content);
+	}
 }

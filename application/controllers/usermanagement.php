@@ -45,8 +45,8 @@ class usermanagement extends CI_Controller {
 		$js = array(
 			'urlSave' => base_url($this->kelas.'/profile_save'),
 			);
-		$content['content'] = $this->load->view('profile/index',$index,true);
-		$content['js'] = $this->load->view('profile/js',$js,true);
+		$content['content'] = $this->load->view('profile_pengguna/index',$index,true);
+		$content['js'] = $this->load->view('profile_pengguna/js',$js,true);
 		$this->load->view('newindex',$content);
 	}
 	function profile_save(){

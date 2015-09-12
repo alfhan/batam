@@ -31,7 +31,7 @@
                     <ul class="dropdown-menu">
                         <!-- User image -->
                         <li class="user-header bg-light-blue">
-                            <img src="<?php echo base_url($pengguna->foto);?>" class="img-circle" alt="User Image" />
+                            <img src="<?php echo base_url('uploads/'.$pengguna->foto);?>" class="img-circle" alt="User Image" />
                             <p><?php echo $pengguna->nama;?></p>
                         </li>
                         <!-- Menu Footer-->

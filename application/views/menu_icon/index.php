@@ -18,7 +18,7 @@
                 </div>
                 <div class="box-body">
                   <div class="col-md-12">
-                    <a class="btn btn-sm btn-primary pull-right" href="<?=site_url('main_menu/form')?>">
+                    <a class="btn btn-sm btn-primary pull-right" href="<?=site_url('menu_icon/form')?>">
                       <i class="fa fa-plus"></i> Add
                     </a>
                   </div>
@@ -41,7 +41,7 @@
                           <td><?=$row['nama']?></td>
                           <td><?=$row['url']?></td>
                           <td>
-                              <a target="_blank" href="<?=site_url('main_menu/form/'.$row['id'])?>" class="btn btn-xs btn-info">Edit</a>
+                              <a target="_blank" href="<?=site_url('menu_icon/form/'.$row['id'])?>" class="btn btn-xs btn-info">Edit</a>
                               <button type="button" class="btn btn-xs btn-danger" onclick="deleteClick('<?php echo $row['id'];?>')">
                                   Delete
                               </button>

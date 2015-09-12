@@ -9,14 +9,14 @@
 		</header>
 		<div class="content-wrapper">
 			<section class="content-header" style="padding:0;">
-				<div class="col-md-12 col-sm-12" style="background:url('<?=base_url('asset/images/slide/3.jpg')?>') no-repeat;">
+				<div class="col-md-12 col-sm-12" style="background:url('<?=base_url('asset/images/gambar.jpg')?>') no-repeat;">
 					<div class="col-md-12 col-sm-12">
 						<div class="col-md-3 col-sm-3">
 							&nbsp;
 						</div>
 						<div class="col-md-6 col-sm-6">
 						<br />
-							<input class="form-control input-lg" name="q" placeholder="Cari info batam disini" style="border:1px solid #ccceee;border-radius:5px ! important;box-shadow:-3px 2px 16px #1C590C">
+							<input class="form-control input-lg" name="q" id="q" placeholder="Cari info batam disini" style="border:1px solid #ccceee;border-radius:5px ! important;box-shadow:-3px 2px 16px #1C590C">
 						<br />
 						</div>
 					</div>
@@ -70,39 +70,10 @@
 		    	$profil = $this->auth->profil();
 		    	$linkInstansi = $this->auth->linkInstansi();
 		    	$mainMenu = $this->auth->mainMenu();
-		    	$theModule = $this->auth->the_module();
 		    ?>
 		   	<?php $this->load->view('front/main_menu');?>
-		    <div class="col-md-12 col-sm-12" style="padding:0;">
-		    	<div class="col-md-1 col-sm-1">&nbsp;</div>
-			    <div class="col-md-10 col-sm-10">
-			    <?php
-			    	foreach ($theModule['parent'] as $r) {
-			    ?>
-			    	<div class="col-md-4 col-sm-4">
-			    		<div class="panel panel-success">
-			    			<div class="panel-heading">
-			    				<h3 class="panel-title"><?=$r['nama']?></h3>
-			    			</div>
-			    			<div class="panel-body">
-			    				<dl>
-				    				<?php
-				    					foreach ($theModule['child'] as $row) {
-				    						if($row['module_id'] == $r['id']){
-										?>
-										<?php if($row['show_title'] == 1){ ?>
-										<dt><?=$row['judul']?></dt>
-										<?php } ?>
-										<dd><?=nl2br($row['isi'])?></dd>
-										<?php } } ?>
-									</dl>
-			    			</div>
-			    		</div>
-			    	</div>
-			    <?php } ?>
-		    	</div>
-		    	<div class="col-md-1 col-sm-1">&nbsp;</div>
-		    </div>
+		   	<?php $this->load->view('front/module');?>
+		    
 		    <div class="col-md-12 col-sm-12" style="padding:0;">
 		    	<div class="panel" style="padding:0;">
 		    		<div class="panel-heading" style="padding-top:25px">
@@ -116,7 +87,7 @@
 		    							break;
 		    			?>
 		    			<div class="col-md-2 col-sm-2">
-		    				<a href="<?=$r['url']?>" target="_blank"> <img src="<?=base_url($r['image'])?>" class="img-responsive" title="nama" /></a>
+		    				<a href="<?=$r['url']?>" target="_blank"> <img src="<?=base_url($r['image'])?>" class="img-responsive" title="<?=$r['nama']?>" /></a>
 		    			</div>
 		    			<?php } ?>
 		    			<div class="col-md-2 col-sm-2">&nbsp;</div>
@@ -131,7 +102,7 @@
 		    					if($r['id'] >= 5){
 		    			?>
 		    			<div class="col-md-2 col-sm-2">
-		    				<a href="<?=$r['url']?>" target="_blank"> <img src="<?=base_url($r['image'])?>" class="img-responsive" title="nama" /></a>
+		    				<a href="<?=$r['url']?>" target="_blank"> <img src="<?=base_url($r['image'])?>" class="img-responsive" title="<?=$r['nama']?>" /></a>
 		    			</div>
 		    			<?php } } ?>
 		    			<div class="col-md-2 col-sm-2">&nbsp;</div>
@@ -150,10 +121,14 @@
 						<div class="col-md-2 col-sm-2">
 							<div class="panel" style="background:none;">
 								<div class="panel-body" style="padding:0">
-									<img src="<?=base_url($r['image'])?>" class="img-responsive">
+									<a href="<?=$r['url']?>" target="_blank">
+										<img src="<?=base_url($r['image'])?>" class="img-responsive">
+									</a>
 								</div>
 								<div class="panel-footer" style="padding:0;color:#fff;background:none;border:none;text-align:center">
-									<?=$r['nama']?>
+									<a href="<?=$r['url']?>" target="_blank">
+										<?=$r['nama']?>
+									</a>
 								</div>
 							</div>
 						</div>
@@ -170,10 +145,14 @@
 						<div class="col-md-2 col-sm-2">
 							<div class="panel" style="background:none;">
 								<div class="panel-body" style="padding:0">
-									<img src="<?=base_url($r['image'])?>" class="img-responsive">
+									<a href="<?=$r['url']?>" target="_blank">
+										<img src="<?=base_url($r['image'])?>" class="img-responsive">
+									</a>
 								</div>
 								<div class="panel-footer" style="padding:0;color:#fff;background:none;border:none;text-align:center">
-									<?=$r['nama']?>
+									<a href="<?=$r['url']?>" target="_blank">
+										<?=$r['nama']?>
+									</a>
 								</div>
 							</div>
 						</div>
@@ -188,26 +167,51 @@
 	      	<div class="col-md-2 col-sm-2" style="margin:0;padding:0">
 	      		<div class="panel" style="background:none;padding:2px">
 		      		<div class="panel-heading">
-		      			<h3 class="panel-title" style="color:#B7A328;font-size:20px;font-family:Arial"><?=$r['nama']?></h3>
+		      			<h3 class="panel-title" style="color:#B7A328;font-size:20px;font-family:Arial"><?=$r['nama']?>
+		      				<a href="javascript:void(0)" style="font-size:12px" onclick="showMauHide('<?=$r['id']?>')"><i class="fa fa-plus pull-right"></i></a>
+		      				<a href="javascript:void(0)" style="font-size:12px" onclick="hideMauHide('<?=$r['id']?>')"><i class="fa fa-minus pull-right"></i></a>
+		      			</h3>
 		      		</div>
 		      		<div class="panel-body" style="font-size:14px;padding:0">
 		      			<?php 
+		      				$i=1;
 		      				foreach ($footer as $row) { 
 		      					if($row['parent_id'] == $r['id']){
+		      						if($i > 5){
+		      							$class= "class='mau-hide-$r[id]'";
+		      						}else{
+		      							$class= "";
+		      						}
+		      						
 		      			?>
-		      			<?php if($row['tipe'] == 'Internal Link'){ ?>
-		      				<a style="color:#fff;" href="<?=site_url($row['url'])?>"><?=$row['nama']?></a><br />
-		      			<?php }else{ ?>
-		      				<a style="color:#fff;" href="<?=$row['url']?>" target="_blank"><?=$row['nama']?></a><br />
-		      			<?php } ?>
-		      			<?php } } ?>
+		      				<a <?=$class;?> style="color:#fff" href="<?=$row['url']?>" target="_blank"><?=$row['nama']?></a><br />
+		      			<?php 
+		      					$i++;
+		      					} 
+		      				}
+		      			?>
 		      		</div>
 		      	</div>
 	      	</div>
-	      <?php }} ?>
+	      <?php } ?>
+	      <?php } ?>
 	      </div>
 			</section>
-			
+			<script type="text/javascript">
+			$(document).ready(function(){
+				$(".mau-hide-1,.mau-hide-2,.mau-hide-3,.mau-hide-4,.mau-hide-5,.mau-hide-6").hide();
+				$("#q").change(function(){
+					var q = $("#q").val();
+					window.open("<?=site_url('content_main')?>/cari/"+q,"_self");
+				});
+			});
+			function showMauHide(id){
+				$(".mau-hide-"+id).show('slow');
+			}
+			function hideMauHide(id) {
+				$(".mau-hide-"+id).hide('slow');
+			}
+			</script>
 		</div>
 		<footer class="main-footer" style="padding:0">
 			<div class="col-md-12 col-sm-12" style="background:#eeeddd;padding:10px">

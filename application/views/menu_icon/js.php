@@ -1,4 +1,7 @@
 <script type="text/javascript">
+  $(document).ready(function(){
+    $("#tbl").DataTable();
+  });
     var berforeSendLoading = bootbox.dialog({
           title: "Loading",
           message: "<div class='progress sm progress-striped active'>"+
@@ -28,23 +31,27 @@
           closeButton: true,
           show: false,
         });
-    function saveClick(){
-        $('#myForm').ajaxSubmit({
-            url:'<?php echo $urlSave;?>',
-            beforeSend:function(r){
-              berforeSendLoading.modal('show');
-            },
-            success:function(r){
-              berforeSendLoading.modal('hide');
-              successDialog.modal('show');
-              window.open("<?php echo base_url($link);?>","_self");
-            },
-            error:function(r){
-              berforeSendLoading.modal('hide');
-              errorDialog.modal('show');
-            },
-        }).data('jqxhr').done(function(r){
-            
-        });
-    }
-    </script>
+	function deleteClick(id){
+		bootbox.confirm("Apakah anda yakin ingin menghapus?", function(result) {
+			if (result == true) {
+                $.ajax({
+                	data:{id:id},
+                	type:'POST',
+                	url:'<?php echo $urlDelete;?>',
+                	success:function(r){
+		              berforeSendLoading.modal('hide');
+		              successDialog.modal('show');
+		              window.open("<?php echo base_url($link);?>","_self");
+		            },
+		            error:function(r){
+		              berforeSendLoading.modal('hide');
+		              errorDialog.modal('show');
+		            },
+                	beforeSend:function(r){
+                	  berforeSendLoading.modal('show');
+                	}
+                });
+            }
+		});
+	}
+</script>

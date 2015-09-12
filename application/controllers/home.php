@@ -14,7 +14,7 @@ class home extends CI_Controller {
 			$index = array(
 				'title' => 'Dasdboard',
 				'link' => 'home', 
-				'data' => $this->auth->dashboard(),
+				'data' => '',
 				);
 			$js = array();
 			$content['content'] = $this->load->view('dashboard/index', $index, true);

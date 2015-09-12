@@ -15,6 +15,7 @@ class usermanagement_model extends MY_Model {
 	
 	public function save(){
 		$_POST['password'] = md5($_POST['password']);
+		$_POST['group_id'] = 1;
 		$this->simpan($this->table);
 	}
 	
@@ -43,7 +44,7 @@ class usermanagement_model extends MY_Model {
 	public function profile_save(){
 		$config['upload_path'] = './uploads/';
 		$config['allowed_types'] = 'gif|jpg|png';
-		$config['max_size']	= '500';
+		$config['max_size']	= '5000';
 		$config['max_width']  = '1024';
 		$config['max_height']  = '768';
 		$config['encrypt_name']  = true;
@@ -57,7 +58,7 @@ class usermanagement_model extends MY_Model {
 			'password' => md5($this->input->post('password')),
 			'nama' => $this->input->post('nama'),
 			'foto' => $data_foto['file_name'],
-			'group_id' => $this->input->post('group_id'),
+			'group_id' => 1,
 			'email' => $this->input->post('email'),
 			'telp' => $this->input->post('telp'),
 			'hp' => $this->input->post('hp'),

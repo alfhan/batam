@@ -24,9 +24,9 @@
       	<?php
       	if($row['tipe'] == 'Internal Link'){
       	?>
-		      <li style="background:#1C590C;"><a href="<?=site_url('content_main/index/'.$row['id'])?>" class="btn btn-lg" style="text-align:left;color:#fff"><i class="glyphicon glyphicon-play btn-sm"></i><?=$row['nama']?></a></li>
+		      <li style="background:#1C590C;"><a href="<?=site_url('content_main/index/'.$row['id'])?>" class="btn btn-md" style="text-align:left;color:#fff"><i class="glyphicon glyphicon-play btn-sm"></i><?=$row['nama']?></a></li>
 				<?php }else{ ?>
-					<li style="background:#1C590C;"><a href="<?=$row['url']?>" target="_blank" class="btn btn-lg" style="text-align:left;color:#fff"><i class="glyphicon glyphicon-play btn-sm"></i><?=$row['nama']?></a></li>
+					<li style="background:#1C590C;"><a href="<?=$row['url']?>" target="_blank" class="btn btn-md" style="text-align:left;color:#fff"><i class="glyphicon glyphicon-play btn-sm"></i><?=$row['nama']?></a></li>
 				<?php } ?>
 		    <?php } } ?>
 		    </ul>

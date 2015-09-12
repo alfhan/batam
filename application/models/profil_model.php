@@ -29,6 +29,8 @@ class profil_model extends MY_Model {
 		$return = $this->upload->display_errors();*/
 		@$tmp_name = $_FILES['foto']['tmp_name'];
 		$foto = $tmp_name ? $this->image_resize_logo($tmp_name) : false;
+		@$tmp_gbr = $_FILES['gambar']['tmp_name'];
+		$gambar = $tmp_gbr ? $this->image_resize_gambar($tmp_gbr) : false;
 		$data = array(
 			'nama' => $this->input->post('nama'),
 			'alamat' => $this->input->post('alamat'),
@@ -38,6 +40,7 @@ class profil_model extends MY_Model {
 			'fb' => $this->input->post('fb'),
 			'twitter' => $this->input->post('twitter'),
 			'foto' => $foto,
+			'gambar' => $gambar,
 			);
 		if(!$foto){
 			unset($data['foto']);
@@ -59,6 +62,26 @@ class profil_model extends MY_Model {
 		$config['width']         = 65;
 		$config['height']       = 85;
 		$config['new_image'] = "asset/images/logo.jpg";
+		$this->image_lib->initialize($config);
+		$this->image_lib->clear();
+	    $this->image_lib->initialize($config);
+	    $this->image_lib->resize();
+		if ( ! $this->image_lib->resize()){
+        	return $this->image_lib->display_errors();
+		}else{
+			return 'logo.jpg';
+		}
+    }
+    public function image_resize_gambar($images)
+    {
+    	$this->load->library('image_lib');
+		$config['image_library'] = 'gd2';
+		$config['source_image'] = $images;
+		/*$config['create_thumb'] = TRUE;*/
+		$config['maintain_ratio'] = false;
+		$config['width']         = 1290;
+		$config['height']       = 506;
+		$config['new_image'] = "asset/images/gambar.jpg";
 		$this->image_lib->initialize($config);
 		$this->image_lib->clear();
 	    $this->image_lib->initialize($config);
