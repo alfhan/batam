@@ -13,7 +13,7 @@ class link_instansi extends CI_Controller {
     }
 	public function index(){
 		$index = array(
-			'title' => 'Menu Icon',
+			'title' => 'Link Instansi',
 			'link' => $this->kelas, 
 			'data' => $this->link_instansi_model->get(),
 			);
@@ -27,7 +27,7 @@ class link_instansi extends CI_Controller {
 	public function form($id=0)
 	{
 		$index = array(
-			'title' => 'Form Menu Icon',
+			'title' => 'Form Link Instansi',
 			'link' => $this->kelas, 
 			'parent_id' => $this->link_instansi_model->get(),
 			);

@@ -29,7 +29,7 @@
 						</div>
 						<div class="form-group">
 							<div class="col-md-12">
-								<a href="<?=site_url('main_menu')?>" class="btn btn-sm btn-warning"> Back</a>
+								<a href="<?=site_url('menu_icon')?>" class="btn btn-sm btn-warning"> Back</a>
 								<button class="btn btn-sm btn-primary pull-right" type="submit"> Save</button>
 							</div>
 						</div>

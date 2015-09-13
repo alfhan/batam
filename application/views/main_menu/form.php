@@ -22,6 +22,13 @@
 							<div class="col-md-3">
 								<input class="form-control input-sm" name="nama" required value="<?=@$data['nama']?>" />
 							</div>
+							<label class="control-label col-md-2">Tipe</label>
+							<div class="col-md-3">
+								<select class="form-control input-sm" name="tipe">
+									<option value="Internal Link" <?=@$data['tipe']=='Internal Link'?"selected='selected'":""?>>Internal Link</option>
+									<option value="Eksternal Link" <?=@$data['tipe']=='Eksternal Link'?"selected='selected'":""?>>Eksternal Link</option>
+								</select>
+							</div>
 						</div>
 						<div class="form-group">
 							<label class="control-label col-md-2">Parent</label>

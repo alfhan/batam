@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 07, 2015 at 03:30 AM
+-- Generation Time: Sep 13, 2015 at 06:10 AM
 -- Server version: 5.6.21
 -- PHP Version: 5.6.3
 
@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS `artikel` (
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `is_aktif` tinyint(1) NOT NULL DEFAULT '1',
   `kategori_artikel_id` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `artikel`
@@ -50,7 +50,32 @@ INSERT INTO `artikel` (`id`, `judul`, `isi`, `foto`, `user_id`, `tanggal`, `upda
 (5, 'Term Of Use', '', '', 1, '2015-06-25', '2015-06-25 13:27:59', 1, 1),
 (6, 'Aturan & Cara menjadi reseller', '<ol><li>Pilih produk yang anda suka</li><li>Minimum pembelian tertera di setiap item produk</li><li>Klik add to cart untuk mulai membeli</li><li>Update keranjang belanja jika ingin mengubah quantity pembelian, dan klik belanja lagi jika ingin belanja produk lain</li><li>Klik Checkout untuk menyelesaikan belanja dan isi data pengiriman belanja</li><li>Anda akan mendapatkan notifikasi email sesuai dengan username&nbsp;</li><li>Silahkan transfer sesuai dengan daftar transfer</li><li>Login ke akun anda dan lakukan konfirmasi pembayaran terhadap barang yang anda beli di my account &gt; history belanja</li><li>Klik detail invoice yang anda transfer, kemudian klik konfirmasi dan isi konfirmasi tentang transfer Contoh: Taufik Ute Alfan# Bank Mandiri# 125.000# 11 Juli 2015# No Invoice #NSA021</li></ol>', '', 1, '2015-06-25', '2015-08-28 09:18:05', 1, 1),
 (7, 'Company Information', '', '', 1, '2015-06-25', '2015-06-25 13:30:45', 1, 9),
-(8, 'GIRLS PINK T SHIRT ARRIVED IN STORE', '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p><br><p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p><br><p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p><br><p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>', '558e2ce8d70ea.jpg', 1, '2015-06-27', '2015-06-27 04:56:09', 1, 1);
+(9, 'SDN 1 KOTA BATAM', 'Jumlah Siswa 400<br>Laki-laki 250<br>Perempuan 150', '', 1, '2015-09-10', '2015-09-10 15:10:03', 0, 25),
+(10, 'Pendidikan Di Batam', 'Kami jabarkan pendidikan yang ada dikota kami <b>BATAM<br>asdd<br>asd<br>asddadava d asda dasd asd afasd afsffsad aasf ss ass</b>', '55f24d0115cdf.jpg', 1, '2015-09-11', '2015-09-11 03:40:06', 0, 6),
+(11, 'Warga', '<b>WELCOME </b>sekilas info warga kota batam', '55f24eabd4564.jpg', 1, '2015-09-11', '2015-09-11 03:46:52', 0, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `background_show`
+--
+
+CREATE TABLE IF NOT EXISTS `background_show` (
+`id` int(11) NOT NULL,
+  `foto` varchar(100) NOT NULL,
+  `keterangan` text NOT NULL,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `judul` varchar(100) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `background_show`
+--
+
+INSERT INTO `background_show` (`id`, `foto`, `keterangan`, `updated_at`, `judul`) VALUES
+(8, '55f20fdca81bb.jpg', '', '2015-09-10 23:18:56', 'Balio Batam'),
+(9, '55f20ffe0a197.jpg', '', '2015-09-10 23:19:27', 'Batam'),
+(10, '55f21010d346d.jpg', '', '2015-09-10 23:19:45', 'Vu de Batam');
 
 -- --------------------------------------------------------
 
@@ -951,31 +976,6 @@ INSERT INTO `kecamatan` (`id`, `kabkota_id`, `nama`, `updated_at`, `provinsi_id`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `kurir`
---
-
-CREATE TABLE IF NOT EXISTS `kurir` (
-`id` int(11) NOT NULL,
-  `nama` varchar(100) NOT NULL,
-  `keterangan` varchar(255) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `kurir`
---
-
-INSERT INTO `kurir` (`id`, `nama`, `keterangan`) VALUES
-(1, 'Pandu Logistic -  Over Night Service', ''),
-(2, 'Pandu Logistic - Same Day Service', ''),
-(3, 'Pandu Logistic - Regular', ''),
-(4, 'Wahana - Service Normal', ''),
-(5, 'Wahana - Service Express', ''),
-(6, 'JNE Regular', ''),
-(7, 'JNE YES', '');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `link_instansi`
 --
 
@@ -986,14 +986,14 @@ CREATE TABLE IF NOT EXISTS `link_instansi` (
   `url` varchar(150) DEFAULT NULL,
   `tipe` enum('Internal Link','Eksternal Link') DEFAULT 'Internal Link',
   `image` varchar(100) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `link_instansi`
 --
 
 INSERT INTO `link_instansi` (`id`, `nama`, `aktif`, `url`, `tipe`, `image`) VALUES
-(1, 'dekranasda', 1, 'http://dekranasda.batamkota.go.id/', 'Internal Link', 'asset/images/dekranasda.png'),
+(1, 'dekranasda', 1, 'http://dekranasda.batamkota.go.id', 'Internal Link', 'asset/images/dekranasda.png'),
 (2, 'Transaransi', 1, 'http://transparansi.batamkota.go.id/', 'Internal Link', 'asset/images/transparansi.png'),
 (3, 'DPRD', 1, 'http://skpd.batamkota.go.id/setdrpd', 'Internal Link', 'asset/images/dprd.png'),
 (4, 'LPSE', 1, 'http://lpse.batamkota.go.id/', 'Internal Link', 'asset/images/lpse.png'),
@@ -1016,37 +1016,43 @@ CREATE TABLE IF NOT EXISTS `main_menu` (
   `aktif` tinyint(1) NOT NULL,
   `tipe` enum('Internal Link','Eksternal Link') NOT NULL DEFAULT 'Internal Link',
   `icon` varchar(100) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `main_menu`
 --
 
 INSERT INTO `main_menu` (`id`, `parent_id`, `nama`, `url`, `aktif`, `tipe`, `icon`) VALUES
-(1, 0, 'Warga', '#', 1, 'Internal Link', 'glyphicon glyphicon-user'),
+(1, 0, 'Warga', '#', 1, 'Internal Link', 'fa fa-user'),
 (2, 0, 'Bisnis', '#', 1, 'Internal Link', 'glyphicon glyphicon-signal'),
 (3, 0, 'Pemerintah', '#', 1, 'Internal Link', 'glyphicon glyphicon-calendar'),
 (4, 0, 'Pariwisata', '#', 1, 'Internal Link', 'glyphicon glyphicon-plane'),
-(5, 1, 'Kesehatan', 'menu/kesehatan', 1, 'Internal Link', NULL),
-(6, 1, 'Pendidikan', 'menu/pendidikan', 1, 'Internal Link', NULL),
-(7, 1, 'Perumahan', 'menu/perumahan', 1, 'Internal Link', NULL),
-(8, 1, 'Transportasi', 'menu/transportasi', 1, 'Internal Link', NULL),
-(9, 1, 'Pelabuhan', 'menu/pelabuhan', 1, 'Internal Link', NULL),
-(10, 2, 'Bisnis di batam', 'menu/bisnis_di_batam', 1, 'Internal Link', NULL),
-(11, 2, 'Infrastruktur', 'menu/infrastruktur', 1, 'Internal Link', NULL),
-(12, 2, 'Kawasan Bisnis', 'menu/kawasan_bisnis', 1, 'Internal Link', NULL),
-(13, 2, 'Koperasi & UKM', 'menu/koperasi_ukm', 1, 'Internal Link', NULL),
-(14, 2, 'Sispadu', 'menu/sispadu', 1, 'Internal Link', NULL),
-(15, 3, 'Profil Kota', 'menu/profil_kota', 1, 'Internal Link', NULL),
-(16, 3, 'Visi dan Misi', 'menu/visi_misi', 1, 'Internal Link', NULL),
-(17, 3, 'Pemerintahan', 'menu/pemerintahan', 1, 'Internal Link', NULL),
-(18, 3, 'Surat Kependudukan', 'menu/surat_kependudukan', 1, 'Internal Link', NULL),
-(19, 3, 'JDIH Batam', 'menu/jdih', 1, 'Internal Link', NULL),
-(20, 4, 'Wisata Bahari', 'menu/wisata_bahari', 1, 'Internal Link', NULL),
-(21, 4, 'Wisata Belanja', 'menu/wisata_belanja', 1, 'Internal Link', NULL),
-(22, 4, 'Wisata Religi', 'menu/wisata_religi', 1, 'Internal Link', NULL),
-(23, 4, 'Wisata Budaya', 'menu/wisata_budaya', 1, 'Internal Link', NULL),
-(24, 4, 'Wisata Kuliner', 'menu/wisata_kuliner', 1, 'Internal Link', NULL);
+(5, 1, 'Kesehatan', '#', 1, 'Internal Link', NULL),
+(6, 1, 'Pendidikan', 'http://getbootstrap.com/css/#tables-condensed', 1, 'Internal Link', NULL),
+(7, 1, 'Perumahan', 'http://data.batamkota.go.id/bankdata/home/pariwisata/wisata_religi', 1, 'Eksternal Link', NULL),
+(8, 1, 'Transportasi', '', 1, 'Internal Link', NULL),
+(9, 1, 'Pelabuhan', '', 1, 'Internal Link', NULL),
+(10, 2, 'Bisnis di batam', '', 1, 'Internal Link', NULL),
+(11, 2, 'Infrastruktur', '', 1, 'Internal Link', NULL),
+(12, 2, 'Kawasan Bisnis', '', 1, 'Internal Link', NULL),
+(13, 2, 'Koperasi & UKM', '', 1, 'Internal Link', NULL),
+(14, 2, 'Sispadu', '', 1, 'Internal Link', NULL),
+(15, 3, 'Profil Kota', '', 1, 'Internal Link', NULL),
+(16, 3, 'Visi dan Misi', '', 1, 'Internal Link', NULL),
+(17, 3, 'Pemerintahan', '', 1, 'Internal Link', NULL),
+(18, 3, 'Surat Kependudukan', '', 1, 'Internal Link', NULL),
+(19, 3, 'JDIH Batam', '', 1, 'Internal Link', NULL),
+(20, 4, 'Wisata Bahari', '', 1, 'Internal Link', NULL),
+(21, 4, 'Wisata Belanja', '', 1, 'Internal Link', NULL),
+(22, 4, 'Wisata Religi', '', 1, 'Internal Link', NULL),
+(23, 4, 'Wisata Budaya', '', 1, 'Internal Link', NULL),
+(24, 4, 'Wisata Kuliner', '', 1, 'Internal Link', NULL),
+(25, 6, 'SD', '', 0, 'Internal Link', NULL),
+(26, 6, 'SMP', '', 0, 'Internal Link', NULL),
+(27, 6, 'SMA', '', 0, 'Internal Link', NULL),
+(28, 6, 'SMK', '', 0, 'Internal Link', NULL),
+(29, 6, 'MA', '', 0, 'Internal Link', NULL),
+(30, 6, 'PERGURUAN TINGGI', '', 0, 'Internal Link', NULL);
 
 -- --------------------------------------------------------
 
@@ -1159,15 +1165,16 @@ CREATE TABLE IF NOT EXISTS `profil` (
   `fb` varchar(100) NOT NULL,
   `twitter` varchar(100) NOT NULL,
   `kabkota` varchar(100) NOT NULL,
-  `fax` varchar(25) NOT NULL
+  `fax` varchar(25) NOT NULL,
+  `gambar` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `profil`
 --
 
-INSERT INTO `profil` (`id`, `nama`, `alamat`, `telp`, `email`, `foto`, `fb`, `twitter`, `kabkota`, `fax`) VALUES
-(1, 'Batam Website', 'Jl. Engku Puteri No 1 Batam Center - Batam', '(+62778) 462164', 'kominfo@batamkota.go.id', 'logo.jpg', '#', '#', 'Kota Batam', '(+62778) 461813');
+INSERT INTO `profil` (`id`, `nama`, `alamat`, `telp`, `email`, `foto`, `fb`, `twitter`, `kabkota`, `fax`, `gambar`) VALUES
+(1, 'Batam Website', 'Jl. Engku Puteri No 1 Batam Center - Batam', '(+62778) 462164', 'kominfo@batamkota.go.id', 'logo.jpg', '#', '#', 'Kota Batam', '(+62778) 461813', 'logo.jpg');
 
 -- --------------------------------------------------------
 
@@ -1301,16 +1308,16 @@ CREATE TABLE IF NOT EXISTS `slide_show` (
   `keterangan` text NOT NULL,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `judul` varchar(100) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `slide_show`
 --
 
 INSERT INTO `slide_show` (`id`, `foto`, `keterangan`, `updated_at`, `judul`) VALUES
-(2, '55d44aa123bbb.jpg', 'No Artificial Flavour,&nbsp;No Artificial Colour,&nbsp;No MSG added,&nbsp;No Preservatives,&nbsp;No Gluten', '2015-08-19 09:21:38', 'Fresh From Nature'),
-(3, '55d44a9730e52.jpg', '<b>What Is Oenlez? OENLEZ&nbsp;</b>is the Abreviation og Oenal Lezat which means the food has an incridible <b>DELICIOUS </b>taste.', '2015-08-19 09:21:28', 'Gluten Free MSG'),
-(4, '55d44a8e22807.jpg', '<b>Barang baru<br></b>adasda<br><b>asdasdad</b>', '2015-08-19 09:21:19', 'New Face 1');
+(5, '55f1f8b4d2e81.jpg', '', '2015-09-10 21:40:06', 'First Slide'),
+(6, '55f1f8d5aac36.jpg', '', '2015-09-10 21:40:38', 'Second Slide'),
+(7, '55f1f8ea49c9f.jpg', '', '2015-09-10 21:40:59', 'Third Slide');
 
 -- --------------------------------------------------------
 
@@ -1351,25 +1358,19 @@ CREATE TABLE IF NOT EXISTS `sys_menu` (
 --
 
 INSERT INTO `sys_menu` (`id`, `parent_id`, `nama`, `url`, `icon`, `urutan`, `level`) VALUES
-(1, 0, 'Main', '#', 'fa fa-th', 1, 1),
-(2, 1, 'Jenis Barang', 'jenis_barang', NULL, 1, 2),
-(3, 1, 'Kategori Produk', 'kategori_barang', NULL, 2, 2),
-(4, 1, 'Pengguna Aplikasi', 'usermanagement', NULL, 1, 2),
-(5, 0, 'Sales Management', '#', 'fa fa-shopping-cart', 2, 1),
-(6, 5, 'Customers', 'daftar_pelanggan', NULL, 1, 2),
-(7, 1, 'Daftar Produk', 'barang', NULL, 4, 2),
-(8, 5, 'Daftar Penjualan', 'daftar_penjualan', NULL, 2, 2),
-(9, 0, 'Article Management', '#', 'fa fa-file-o', 3, 1),
+(1, 0, 'Setting', '#', 'fa fa-th', 1, 1),
+(4, 1, 'User Management', 'usermanagement', NULL, 1, 2),
+(9, 0, 'Content & Module', '#', 'fa fa-file-o', 3, 1),
 (10, 5, 'Rekap Penjualan', 'rekap', NULL, 3, 2),
 (11, 5, 'Notifikasi', 'notifikasi', NULL, 4, 2),
-(12, 9, 'Kategori Artikel', 'kategori_artikel', NULL, 1, 2),
-(13, 1, 'Profil Usaha', 'profil', NULL, 2, 2),
-(14, 9, 'Daftar Artikel', 'daftar_artikel', NULL, 2, 2),
-(15, 1, 'Menu Management', 'menu_management', NULL, 5, 2),
-(16, 9, 'Slide Show', 'slide_show', NULL, 3, 2),
-(17, 0, 'Other', '#', 'fa fa-th', 4, 1),
-(18, 17, 'Banner', 'banner_management', NULL, 1, 2),
-(19, 17, 'Shipping Payment', 'wilayah', NULL, 2, 2);
+(12, 9, 'Main Menu', 'main_menu', NULL, 2, 2),
+(13, 1, 'Profile Website', 'profile_company', NULL, 2, 2),
+(14, 9, 'Artikel', 'daftar_artikel', NULL, 3, 2),
+(15, 9, 'Module', 'the_module', NULL, 1, 2),
+(16, 9, 'Slide Show', 'slide_show', NULL, 4, 2),
+(17, 9, 'Background Slide', 'background_show', NULL, 5, 2),
+(18, 9, 'Menu Icon', 'menu_icon', NULL, 6, 2),
+(19, 9, 'Link Instansi', 'link_instansi', NULL, 7, 2);
 
 -- --------------------------------------------------------
 
@@ -1388,15 +1389,14 @@ CREATE TABLE IF NOT EXISTS `sys_user` (
   `hp` varchar(15) DEFAULT NULL,
   `pegawai_id` varchar(40) DEFAULT NULL,
   `foto` varchar(100) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `sys_user`
 --
 
 INSERT INTO `sys_user` (`id`, `username`, `password`, `nama`, `group_id`, `email`, `telp`, `hp`, `pegawai_id`, `foto`) VALUES
-(1, 'admin', '81dc9bdb52d04dc20036dbd8313ed055', 'Administrator', 1, 'alfhan@yahoo.co.id', '', '08993484898', NULL, '8b3fa3bfbc79f7cc1a626a7a68e612a8.jpg'),
-(3, 'operator2', '81dc9bdb52d04dc20036dbd8313ed055', 'Operator 2', 1, '', '', '', NULL, NULL);
+(1, 'admin', '81dc9bdb52d04dc20036dbd8313ed055', 'Administrator', 1, 'alfhan@yahoo.co.id', '', '08993484898', NULL, '1b51b9ae0a75135d0592f86567519fc6.JPG');
 
 -- --------------------------------------------------------
 
@@ -1427,9 +1427,9 @@ INSERT INTO `sys_user_group` (`id`, `menu_id`, `group_id`) VALUES
 (10, 10, 1),
 (11, 11, 1),
 (12, 14, 1),
-(13, 15, NULL),
+(13, 15, 1),
 (14, 16, 1),
-(15, 17, 1),
+(15, 17, NULL),
 (16, 18, 1),
 (17, 19, 1),
 (18, 7, 3),
@@ -1466,6 +1466,61 @@ INSERT INTO `temp_jual` (`id`, `sesi_id`, `barang_id`, `qty`, `harga`, `pelangga
 (6, '36221bc3ffea6ef9fdbd0291b3bf3535', 10, 1, 11000, 0, '2015-08-14 07:27:37', '2015-08-14', 80),
 (7, 'd224234c34a4c04f577d4353b2050591', 17, 1, 270000, 0, '2015-08-14 07:35:18', '2015-08-14', 2500),
 (8, '5544fcd1859a69d95162f1956ff6e5de', 18, 2, 11000, 11, '2015-08-27 09:16:53', '2015-08-27', 2500);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `the_module`
+--
+
+CREATE TABLE IF NOT EXISTS `the_module` (
+`id` int(11) NOT NULL,
+  `nama` varchar(100) DEFAULT NULL,
+  `posisi` enum('Tengah 1','Tengah 2','Tengah 3') DEFAULT NULL,
+  `keterangan` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `the_module`
+--
+
+INSERT INTO `the_module` (`id`, `nama`, `posisi`, `keterangan`) VALUES
+(1, 'MEDIA CENTER', 'Tengah 1', NULL),
+(2, 'KABAR SKPD', 'Tengah 2', NULL),
+(3, 'HUMAS SETDAKO BATAM', 'Tengah 3', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `the_module_detail`
+--
+
+CREATE TABLE IF NOT EXISTS `the_module_detail` (
+`id` int(11) NOT NULL,
+  `module_id` int(11) DEFAULT NULL,
+  `judul` varchar(100) DEFAULT NULL,
+  `isi` text,
+  `updated_date` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  `sys_user_id` int(11) DEFAULT NULL,
+  `tanggal` date DEFAULT NULL,
+  `show_title` tinyint(1) DEFAULT '1',
+  `url` text
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `the_module_detail`
+--
+
+INSERT INTO `the_module_detail` (`id`, `module_id`, `judul`, `isi`, `updated_date`, `sys_user_id`, `tanggal`, `show_title`, `url`) VALUES
+(2, 1, 'Pemilik Bongkar Sendiri Bangunan Liarnya', 'Tim Terpadu Kota Batam yang terdiri dari Satpol PP, TNI, Polri, Dinas Pekerjaan Umum serta Kecamatan Bengkong menertibkan rumah liar yang berada di Bengkong Palapa, Kamis (<a target="_blank" rel="nofollow">10/9</a>). Namun saat tiba di lokasi...', '2015-09-13 03:02:20', NULL, '2015-09-10', 1, 'http://mediacenter.batamkota.go.id/mari-ikuti-lomba-desain-prangko-berhadiah-jutaan-rupiah/'),
+(3, 1, 'JuPe Batam Bagikan Masker ke Pengguna Jalan', 'Selama ini kami terus memberitakan kabut asap yang kian pekat di Batam dan membuat masyarakat resah. Jadi kami ingin ikut...', '2015-09-13 03:03:21', NULL, '2015-09-10', 1, 'http://mediacenter.batamkota.go.id/jupe-batam-bagikan-masker-ke-pengguna-jalan/'),
+(4, 1, 'Insentif Guru Akan dicairkan Bertahap', 'Sekretaris Daerah Provinsi Kepulauan Riau, Robert Iwan Loreaux meminta guru-guru bersabar terkait belum cairnya...', '2015-09-13 03:05:07', NULL, '2015-09-10', 1, 'http://mediacenter.batamkota.go.id/insentif-guru-akan-dicairkan-bertahap'),
+(5, 1, 'Revolusi Mental: Membangun Jiwa Merdeka Menuju Bangsa Besar', 'Revolusi Mental adalah suatu gerakan untuk menggembleng manusia Indonesia agar menjadi manusia baru, yang berhati putih, berkemauan baja, bersemangat elang...', '2015-09-13 03:06:01', NULL, '2015-09-10', 1, 'http://mediacenter.batamkota.go.id/revolusi-mental-membangun-jiwa-merdeka-menuju-bangsa-besar/'),
+(6, 1, 'Mari Ikuti Lomba Desain Prangko Berhadiah Jutaan Rupiah', 'Direktorat Penyelenggaraan Pos dan Informatika Kementerian Komunikasi dan Informatika menggelar Lomba Desain Prangko Nasional 2015. Adapun ...<br>', '2015-09-13 03:06:36', NULL, '2015-09-10', 1, 'http://mediacenter.batamkota.go.id/mari-ikuti-lomba-desain-prangko-berhadiah-jutaan-rupiah/'),
+(7, 2, 'Indeks Standar Pencemar Udara (ISPU) Kota Batam', 'Pemerintah Kota Batam tidak dapat mencegah semakin memburuknya kualitas udara di Batam akibat asap kiriman ini. Bapedal Kota Batam bersama Dinas...', '2015-09-13 03:10:49', NULL, '2015-09-10', 1, 'http://skpd.batamkota.go.id/dampaklingkungan/2015/09/indeks-standar-pencemar-udara-ispu-kota-batam/'),
+(8, 2, ' Warga Proaktif Tertibkan Sendiri Rumah Liar', 'Tim terpadu Kota Batam yang terdiri dari Satpol PP, TNI, Polri, Dinas PU (pekerjaan umum) serta kecamatan Bengkong melakukan penertiban rumah liar (ruli) di ...', '2015-09-13 03:11:26', NULL, '2015-09-10', 1, 'http://skpd.batamkota.go.id/satpolpp/2015/09/10/warga-proaktif-tertibakn-sendiri-rumah-liar-mereka/'),
+(11, 3, ' HR. Rudi, SE menghadiri acara Pesta Anak Pantai di Tanjung Riau Kecamatan Sekupang', 'Ketua panitia kegiatan sekaligus camat Sekupang, Zurniati mengatakan Pesta Anak Pantai ini digelar setiap tahun diadakan untuk melestarikan budaya...', '2015-09-13 03:13:27', NULL, '2015-09-10', 1, 'http://www.humasbatam.com/2015/09/05/hr-rudi-se-menghadiri-acara-pesta-anak-pantai-di-tanjung-riau-kecamatan-sekupang/'),
+(12, 3, ' Revolusi Mental : Membangun Jiwa Merdeka Menuju Bangsa Besar', 'Kita tahu, negeri ini telah mengalami penjajahan selama 350 tahun. Selama itu pula bangsa kita mendapat penindasan, diperbudak, diperas setiap tetes sumber daya manusia maupun alamnya...<br>', NULL, NULL, '2015-09-13', 1, 'http://www.humasbatam.com/2015/09/08/revolusi-mental-membangun-jiwa-merdeka-menuju-bangsa-besar/');
 
 -- --------------------------------------------------------
 
@@ -1558,6 +1613,12 @@ ALTER TABLE `artikel`
  ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `background_show`
+--
+ALTER TABLE `background_show`
+ ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `banner`
 --
 ALTER TABLE `banner`
@@ -1621,12 +1682,6 @@ ALTER TABLE `kategori_umum`
 -- Indexes for table `kecamatan`
 --
 ALTER TABLE `kecamatan`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `kurir`
---
-ALTER TABLE `kurir`
  ADD PRIMARY KEY (`id`);
 
 --
@@ -1726,6 +1781,18 @@ ALTER TABLE `temp_jual`
  ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `the_module`
+--
+ALTER TABLE `the_module`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `the_module_detail`
+--
+ALTER TABLE `the_module_detail`
+ ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `website_skpd`
 --
 ALTER TABLE `website_skpd`
@@ -1739,7 +1806,12 @@ ALTER TABLE `website_skpd`
 -- AUTO_INCREMENT for table `artikel`
 --
 ALTER TABLE `artikel`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=12;
+--
+-- AUTO_INCREMENT for table `background_show`
+--
+ALTER TABLE `background_show`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT for table `banner`
 --
@@ -1791,20 +1863,15 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 ALTER TABLE `kecamatan`
 MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=24;
 --
--- AUTO_INCREMENT for table `kurir`
---
-ALTER TABLE `kurir`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
---
 -- AUTO_INCREMENT for table `link_instansi`
 --
 ALTER TABLE `link_instansi`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `main_menu`
 --
 ALTER TABLE `main_menu`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=25;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=31;
 --
 -- AUTO_INCREMENT for table `menu_icon`
 --
@@ -1834,7 +1901,7 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 -- AUTO_INCREMENT for table `slide_show`
 --
 ALTER TABLE `slide_show`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `sys_group`
 --
@@ -1849,7 +1916,7 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=20;
 -- AUTO_INCREMENT for table `sys_user`
 --
 ALTER TABLE `sys_user`
-MODIFY `id` int(11) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+MODIFY `id` int(11) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `sys_user_group`
 --
@@ -1860,6 +1927,16 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=24;
 --
 ALTER TABLE `temp_jual`
 MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
+--
+-- AUTO_INCREMENT for table `the_module`
+--
+ALTER TABLE `the_module`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT for table `the_module_detail`
+--
+ALTER TABLE `the_module_detail`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `website_skpd`
 --
