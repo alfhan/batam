@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 13, 2015 at 06:10 AM
+-- Generation Time: Sep 14, 2015 at 03:01 AM
 -- Server version: 5.6.21
 -- PHP Version: 5.6.3
 
@@ -1351,7 +1351,7 @@ CREATE TABLE IF NOT EXISTS `sys_menu` (
   `icon` varchar(25) DEFAULT NULL,
   `urutan` tinyint(3) DEFAULT NULL,
   `level` tinyint(1) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `sys_menu`
@@ -1370,7 +1370,8 @@ INSERT INTO `sys_menu` (`id`, `parent_id`, `nama`, `url`, `icon`, `urutan`, `lev
 (16, 9, 'Slide Show', 'slide_show', NULL, 4, 2),
 (17, 9, 'Background Slide', 'background_show', NULL, 5, 2),
 (18, 9, 'Menu Icon', 'menu_icon', NULL, 6, 2),
-(19, 9, 'Link Instansi', 'link_instansi', NULL, 7, 2);
+(19, 9, 'Link Instansi', 'link_instansi', NULL, 7, 2),
+(20, 9, 'Website SKPD', 'website_skpd', NULL, 8, 2);
 
 -- --------------------------------------------------------
 
@@ -1432,7 +1433,7 @@ INSERT INTO `sys_user_group` (`id`, `menu_id`, `group_id`) VALUES
 (15, 17, NULL),
 (16, 18, 1),
 (17, 19, 1),
-(18, 7, 3),
+(18, 20, 1),
 (19, 12, 1),
 (20, 12, 3),
 (21, 10, NULL),
@@ -1911,7 +1912,7 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 -- AUTO_INCREMENT for table `sys_menu`
 --
 ALTER TABLE `sys_menu`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=20;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=21;
 --
 -- AUTO_INCREMENT for table `sys_user`
 --
